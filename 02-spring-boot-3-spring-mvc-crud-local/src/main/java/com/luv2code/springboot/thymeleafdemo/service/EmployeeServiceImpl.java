@@ -1,23 +1,18 @@
 package com.luv2code.springboot.thymeleafdemo.service;
 
+import com.luv2code.springboot.thymeleafdemo.dao.EmployeeRepository;
+import com.luv2code.springboot.thymeleafdemo.entity.Employee;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.luv2code.springboot.thymeleafdemo.dao.EmployeeRepository;
-import com.luv2code.springboot.thymeleafdemo.entity.Employee;
-
+@RequiredArgsConstructor
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
-	private EmployeeRepository employeeRepository;
-	
-	@Autowired
-	public EmployeeServiceImpl(EmployeeRepository theEmployeeRepository) {
-		employeeRepository = theEmployeeRepository;
-	}
+	private final EmployeeRepository employeeRepository;
 	
 	@Override
 	public List<Employee> findAll() {
