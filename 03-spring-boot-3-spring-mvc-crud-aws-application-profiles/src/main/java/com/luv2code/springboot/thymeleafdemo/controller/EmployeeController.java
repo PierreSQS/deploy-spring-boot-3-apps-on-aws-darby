@@ -1,24 +1,24 @@
 package com.luv2code.springboot.thymeleafdemo.controller;
 
-import java.util.List;
-
+import com.luv2code.springboot.thymeleafdemo.entity.Employee;
 import com.luv2code.springboot.thymeleafdemo.service.EmployeeService;
-
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.luv2code.springboot.thymeleafdemo.entity.Employee;
+import java.util.List;
 
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
 
-	private EmployeeService employeeService;
-
-	public EmployeeController(EmployeeService theEmployeeService) {
-		employeeService = theEmployeeService;
-	}
+	private final EmployeeService employeeService;
 
 	// add mapping for "/list"
 
